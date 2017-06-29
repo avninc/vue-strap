@@ -59,7 +59,7 @@ export default {
     }
   },
   mounted () {
-    let trigger = this.$refs.trigger.children[0]
+    var trigger = this.$refs.trigger.children[0]
     if (!trigger) return console.error('Could not find trigger v-el in your component that uses popoverMixin.')
 
     if (this.trigger === 'focus' && !~trigger.tabIndex) {
