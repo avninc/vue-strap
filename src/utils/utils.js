@@ -28,15 +28,15 @@ export function getJSON (url) {
     catch (fn) { return p.fail(fn) },
     always (fn) { return p.done(fn).fail(fn) }
   };
-  ['done', 'fail'].forEach(name => {
+  ['done', 'fail'].forEach(function (name) {
     data[name] = []
-    p[name] = (fn) => {
+    p[name] = function (fn) {
       if (fn instanceof Function) data[name].push(fn)
       return p
     }
   })
   p.done(JSON.parse)
-  request.onreadystatechange = () => {
+  request.onreadystatechange = function () {
     if (request.readyState === 4) {
       var e = {status: request.status}
       if (request.status === 200) {
@@ -47,10 +47,10 @@ export function getJSON (url) {
             if (value !== undefined) { response = value }
           }
         } catch (err) {
-          data.fail.forEach(fail => fail(err))
+          data.fail.forEach(function (fail) { fail(err) })
         }
       } else {
-        data.fail.forEach(fail => fail(e))
+        data.fail.forEach(function (fail) { fail(e) })
       }
     }
   }
@@ -112,7 +112,7 @@ export function delayer (fn, varTimer, ifNaN = 100) {
   var timerId
   return function (...args) {
     if (timerId) clearTimeout(timerId)
-    timerId = setTimeout(() => {
+    timerId = setTimeout(function () {
       fn.apply(this, args)
     }, toInt(varTimer) || toInt(this[varTimer]) || ifNaN)
   }
