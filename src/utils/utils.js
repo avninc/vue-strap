@@ -1,5 +1,5 @@
 // coerce convert som types of data into another type
-var coerce = {
+export var coerce = {
   // Convert a string to booleam. Otherwise, return the value without modification, so if is not boolean, Vue throw a warning.
   boolean: function boolean(val) {
     return typeof val === 'string' ? val === '' || val === 'true' ? true : val === 'false' || val === 'null' || val === 'undefined' ? false : val : val;
