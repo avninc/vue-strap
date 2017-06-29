@@ -175,9 +175,9 @@ class NodeList {
     return this
   }
   call (...args) {
-    const method = ArrayProto.shift.call(args)
-    let arr = []
-    let returnThis = true
+    var method = ArrayProto.shift.call(args)
+    var arr = []
+    var returnThis = true
     this.each(el => {
       if (el && el[method] instanceof Function) {
         el = el[method].apply(el, args)

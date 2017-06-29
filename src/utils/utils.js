@@ -1,5 +1,5 @@
 // coerce convert som types of data into another type
-export const coerce = {
+export var coerce = {
   // Convert a string to booleam. Otherwise, return the value without modification, so if is not boolean, Vue throw a warning.
   boolean: val => (typeof val === 'string' ? val === '' || val === 'true' ? true : (val === 'false' || val === 'null' || val === 'undefined' ? false : val) : val),
   // Attempt to convert a string value to a Number. Otherwise, return 0.
@@ -29,7 +29,7 @@ export function getJSON (url) {
   p.done(JSON.parse)
   request.onreadystatechange = () => {
     if (request.readyState === 4) {
-      let e = {status: request.status}
+      var e = {status: request.status}
       if (request.status === 200) {
         try {
           var response = request.responseText
@@ -55,11 +55,11 @@ export function getScrollBarWidth () {
   if (document.documentElement.scrollHeight <= document.documentElement.clientHeight) {
     return 0
   }
-  let inner = document.createElement('p')
+  var inner = document.createElement('p')
   inner.style.width = '100%'
   inner.style.height = '200px'
 
-  let outer = document.createElement('div')
+  var outer = document.createElement('div')
   outer.style.position = 'absolute'
   outer.style.top = '0px'
   outer.style.left = '0px'
@@ -70,9 +70,9 @@ export function getScrollBarWidth () {
   outer.appendChild(inner)
 
   document.body.appendChild(outer)
-  let w1 = inner.offsetWidth
+  var w1 = inner.offsetWidth
   outer.style.overflow = 'scroll'
-  let w2 = inner.offsetWidth
+  var w2 = inner.offsetWidth
   if (w1 === w2) w2 = outer.clientWidth
 
   document.body.removeChild(outer)
@@ -82,7 +82,7 @@ export function getScrollBarWidth () {
 
 // return all the translations or the default language (english)
 export function translations (lang = 'en') {
-  let text = {
+  var text = {
     daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
     limit: 'Limit reached ({{limit}} items max).',
     loading: 'Loading...',

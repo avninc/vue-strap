@@ -1,8 +1,8 @@
 /**
  * Click outside directive
  */
-const HANDLER = '_vue_scroll_handler'
-const events = ['resize', 'scroll']
+var HANDLER = '_vue_scroll_handler'
+var events = ['resize', 'scroll']
 
 function bind (el, binding) {
   unbind(el)
