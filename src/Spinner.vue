@@ -59,9 +59,10 @@ export default {
   created () {
     this._body = document.body
     this._bodyOverflow = document.body.style.overflowY
+    var that = this;
     this._unlock = delayer(function () {
-      this.locked = false
-      this._body.style.overflowY = this._bodyOverflow
+      that.locked = false
+      that._body.style.overflowY = that._bodyOverflow
     }, MIN_WAIT)
     if (this.global) {
       if (!this.$root._globalSpinner) {
