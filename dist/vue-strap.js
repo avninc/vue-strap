@@ -8727,7 +8727,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  computed: {
 	    navStyleClass: function navStyleClass() {
-            console.log(123123, _utils);
 	      return ['nav', ~['pills', 'stacked'].indexOf(this.navStyle) ? 'nav-' + this.navStyle : 'nav-tabs', {
 	        'nav-justified': _utils.coerce.boolean(this.justified),
 	        'nav-pills': this.navStyle === 'stacked'
